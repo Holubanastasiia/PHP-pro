@@ -1,7 +1,7 @@
 <?php
 $name = ' Holubnycha Anastasiia';
 $myPhoto = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfyeYIJHQ8LeKpm2g0RcOAPWoD_lQX1Jw2xQ&usqp=CAU';
-$wanted_role = 'Junior full stack developer';
+$wantedRole = 'Junior full stack developer';
 $salary = 2000;
 $workExperience = 1.5;
 $city = 'Kyiv';
@@ -31,7 +31,7 @@ $telNumber = '+380937078674';
             <h1><?= $name; ?></h1>
         </div>
         <div class="header__role">
-            <?= $wanted_role; ?>
+            <?= $wantedRole; ?>
         </div>
     </div>
 </header>
@@ -41,7 +41,8 @@ $telNumber = '+380937078674';
             echo ' but i\'m ready to relocate';
         } else {
             echo ' and i\'m not ready to relocate';
-        } ?>. I have <?= $workExperience; ?>
+        } ?>.
+        I have <?= $workExperience; ?>
         years experience in development.
         I expected a salary around <?= $salary; ?>$ per month.
     </p>
