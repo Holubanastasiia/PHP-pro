@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #000;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #0303a1;
+    padding: 20px;
+    color: #fff;
+}
+
+.header__main-info {
+    text-align: center;
+}
+
+.header__name {
+    margin-bottom: 20px;
+}
+
+.header__name h1 {
+    font-size: 28px;
+}
+
+.header__role {
+    font-size: 22px;
+}
+
+.intro {
+    color: black;
+    padding-left: 20px;
+    margin-top:20px;
+    max-width: 500px;
+    display: flex;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+footer {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    align-items: center;
+    background-color: #0303a1;
+    padding: 20px;
+    color: #fff;
+}
+
+.contact h1, p{
+    margin-bottom: 20px;
+}
