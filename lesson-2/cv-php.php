@@ -1,13 +1,19 @@
 <?php
-$name = ' Holubnycha Anastasiia';
-$myPhoto = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfyeYIJHQ8LeKpm2g0RcOAPWoD_lQX1Jw2xQ&usqp=CAU';
-$wantedRole = 'Junior full stack developer';
 $salary = 2000;
 $workExperience = 1.5;
 $city = 'Kyiv';
 $readyToRelocate = true;
-$email = 'holubanastasiia@gmail.com';
-$telNumber = '+380937078674';
+$skills = [
+    'JS',
+    'PHP',
+    'HTML',
+    'Css',
+    'Sass/Less',
+    'jQuery',
+    'SQL',
+    'WordPress'
+];
+$time = date('H');
 ?>
 
 <!doctype html>
@@ -19,46 +25,46 @@ $telNumber = '+380937078674';
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
-    <title>CV <?= $name; ?></title>
+    <title>CV</title>
 </head>
-<body>
-<header class="header">
-    <div class="header__photo">
-        <img src="<?= $myPhoto; ?>" alt="photo">
+<body class="<?php if($time >= 18) {
+    echo 'night';
+} else {
+    echo 'day';
+}
+?>">
+<div class="container">
+<?php include_once('templates/header.php')?>
+<main class="main__info">
+    <div class="skills">
+        <p>Hard Skills: </p>
+        <ul>
+        <?php foreach ($skills as $skill) { ?>
+                <li>
+                    <?= $skill; ?>
+                </li>
+        <?php }; ?>
+        </ul>
     </div>
-    <div class="header__main-info">
-        <div class="header__name">
-            <h1><?= $name; ?></h1>
-        </div>
-        <div class="header__role">
-            <?= $wantedRole; ?>
-        </div>
+    <div class="info">
+        <p> My name is <?= $name; ?>, I live in <?= $city; ?>,
+            <?php if ($readyToRelocate == true) {
+                echo ' but i\'m ready to relocate';
+            } else {
+                echo ' and i\'m not ready to relocate';
+            } ?>.
+            I have <?= $workExperience; ?>
+            years experience in development.
+            I expected a salary around <?= $salary; ?>$ per month.
+        </p>
     </div>
-</header>
-<main class="intro">
-    <p> My name is <?= $name; ?>, I live in <?= $city; ?>,
-        <?php if ($readyToRelocate == true) {
-            echo ' but i\'m ready to relocate';
-        } else {
-            echo ' and i\'m not ready to relocate';
-        } ?>.
-        I have <?= $workExperience; ?>
-        years experience in development.
-        I expected a salary around <?= $salary; ?>$ per month.
-    </p>
 </main>
 
-<footer>
-    <div class="contact">
-        <h1>Contact me</h1>
-        <p>Email: <?= $email; ?></p>
-        <p>Tel: <?= $telNumber; ?></p>
-    </div>
-</footer>
-
+<?php require_once('templates/footer.php')?>
+</div>
 </body>
 </html>
 
-<?php echo <<<HEREDOC
-It is a short info about $name. If you have some questions, you can contact me, my tel. number is $telNumber.
-HEREDOC;
+<?php //echo <<<HEREDOC
+//It is a short info about $name. If you have some questions, you can contact me, my tel. number is $telNumber.
+//HEREDOC;

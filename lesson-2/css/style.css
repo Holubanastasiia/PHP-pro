@@ -6,13 +6,37 @@ body {
     color: #000;
 }
 
+body.night {
+    background-color: rgba(32, 32, 32, 0.76);
+    color: #ffffff;
+}
+body.day {
+    background-color: #ececd5;
+    color: #202020;
+}
+
+.container {
+    max-width: 1280px;
+    height: 100%;
+}
+
 .header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #0303a1;
     padding: 20px;
-    color: #fff;
+    height: auto;
+}
+
+.main__info {
+    padding: 0 30px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.info {
+    max-width: 500px;
 }
 
 .header__main-info {
@@ -32,7 +56,6 @@ body {
 }
 
 .intro {
-    color: black;
     padding-left: 20px;
     margin-top:20px;
     max-width: 500px;
@@ -47,9 +70,7 @@ footer {
     width: 100%;
     bottom: 0;
     align-items: center;
-    background-color: #0303a1;
     padding: 20px;
-    color: #fff;
 }
 
 .contact h1, p{
