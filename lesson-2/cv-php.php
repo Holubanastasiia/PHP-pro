@@ -14,13 +14,7 @@ $skills = [
     'WordPress'
 ];
 $time = date('H');
-$bodyClass = '';
-
-if($time >= 6 && $time <= 18) {
-    $bodyClass = 'day';
-} else {
-    $bodyClass = 'night';
-}
+$bodyClass = ($time >= 6 && $time <= 18) ? 'day' : 'night';
 ?>
 
 <!doctype html>
