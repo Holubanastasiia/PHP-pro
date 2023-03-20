@@ -14,6 +14,13 @@ $skills = [
     'WordPress'
 ];
 $time = date('H');
+$bodyClass = '';
+
+if($time >= 6 && $time <= 18) {
+    $bodyClass = 'day';
+} else {
+    $bodyClass = 'night';
+}
 ?>
 
 <!doctype html>
@@ -27,11 +34,7 @@ $time = date('H');
     <link rel="stylesheet" href="./css/style.css">
     <title>CV</title>
 </head>
-<body class="<?php if($time >= 18) {
-    echo 'night';
-} else {
-    echo 'day';
-}
+<body class="<?= $bodyClass;
 ?>">
 <div class="container">
 <?php include_once('templates/header.php')?>
