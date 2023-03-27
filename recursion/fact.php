@@ -6,4 +6,5 @@ function fact($n) : int
     }
     return $n * fact ($n-1);
 }
-echo fact(5);
+$res = fact(5);
+echo 'Факториал числа n = ' . $res;
