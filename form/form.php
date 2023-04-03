@@ -63,33 +63,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $style['city'] = empty($city) ? 'invalid' : 'valid';
 
-        $errors['len'] = '<small class="error-message">This fields can not be less the 2 and bigger then 32</small>';
+        $errors['len'] = 'This fields can not be less the 2 and bigger then 32';
     }
 
     $today = date("Y-m-d");
     $minDate = '1900-01-01';
     if (($birthday > $today) || ($birthday < $minDate)) {
-        $errors['birthday'] = '<small class="error-message" >Invalid date</small>';
+        $errors['birthday'] = 'Invalid date';
         $style['birthday'] = 'invalid';
     } else {
         $style['birthday'] = 'valid';
     }
 
+    $currentDistrict = $districts[$district];
     if (!is_numeric($district)) {
-        $errors['num'] = '<small class="error-message" >Choose district</small>';
+        $errors['num'] = 'Choose district';
         $style['district'] ='invalid';
     } else {
         $style['district'] ='valid';
     }
 
-    $currentDistrict = $districts[$district];
-    $success = "User $name $surname, birthday - $birthday, district - $currentDistrict, city - $city, address - $address add to the system ";
-
     if (count($errors) === 0) {
+        $success = "User $name $surname, 
+        birthday - $birthday, 
+        district - $currentDistrict, 
+        city - $city, 
+        address - $address add to the system ";
         echo $success;
         echo "<style>#form {display:none;}</style>";
     }
-};
+}
 
 ?>
 <!doctype html>
@@ -107,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 <div class="wrapper">
     <form id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post"
-          enctype="application/x-www-form-urlencoded">
+          enctype="multipart/form-data">
         <label for="name"> Name: </label>
         <input
                 type="text"
@@ -148,18 +151,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 name="address"
                 placeholder="st. Chervona, 72"
                 class="<?php echo $style['address']; ?>"
-                value="<?php echo $address ?>"
-        >
+                value="<?php echo $address ?>">
 
         <label for="birthday"> Date of your Birth: </label>
         <input
                 type="date"
                 id="birthday"
                 name="birthday"
-                class="<?php echo $style['birthday']; ?>"
-        >
-        <?php echo $errors['birthday']; ?>
-        <?php echo $errors['len']; ?>
+                class="<?php echo $style['birthday']; ?>">
+
+        <?php foreach ($errors as $error) { ?>
+            <small class="error-message" >
+                <?php echo  $error; ?>
+            </small>
+       <?php };  ?>
 
         <button type="submit">Submit</button>
     </form>
