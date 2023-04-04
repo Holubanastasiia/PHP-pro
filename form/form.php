@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $city = clearData($_POST['city']);
     $address = clearData($_POST['address']);
     $birthday = clearData($_POST['birthday']);
+    $avatar = $_FILES['avatar'];
 
     if (!checkLength($name, 2, 32)
         || !checkLength($surname, 2, 32) ||
@@ -83,13 +84,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $style['district'] ='valid';
     }
 
+    define('UPLOAD_DIR', 'user_photos/');
+
+    if (is_uploaded_file($avatar['tmp_name'])) {
+        if ($avatar['size'] > 1000000) {
+            $errors['size'] =  "File is too large.";
+        } else {
+            $allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+            if (!in_array($avatar['type'], $allowedTypes)) {
+                $errors['type'] =  "File type not allowed.";
+            } else {
+                if (!file_exists(UPLOAD_DIR)) {
+                    mkdir(UPLOAD_DIR);
+                }
+                $destination = UPLOAD_DIR . uniqid() . basename($avatar['name']);
+                $fileName = $avatar['tmp_name'];
+                move_uploaded_file($fileName, $destination);
+                $image =  '<img class="avatar" src="'.  $destination . '"/>';
+            }
+        }
+    }
+    
     if (count($errors) === 0) {
-        $success = "User $name $surname, 
-        birthday - $birthday, 
-        district - $currentDistrict, 
-        city - $city, 
-        address - $address add to the system ";
-        echo $success;
+        echo "<p>User $name $surname</p>";
+        echo "<p>birthday - $birthday</p>";
+        echo "<p>$currentDistrict district</p>";
+        echo "<p>$city city</p>";
+        echo "<p>address - $address add to the system</p>";
+        echo "<div>$image</div>";
         echo "<style>#form {display:none;}</style>";
     }
 }
@@ -132,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <option value="">--Select--</option>
             <?php     foreach ($districts as $key => $dist) {
                 echo '<option value="'. $key.'">' . $dist . '</option>';
-            }; ?>
+            } ?>
         </select>
         <?php echo $errors['num'] ?>
 
@@ -160,11 +182,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 name="birthday"
                 class="<?php echo $style['birthday']; ?>">
 
+        <label for="avatar">Choose your avatar</label>
+        <input type="file" name="avatar">
         <?php foreach ($errors as $error) { ?>
             <small class="error-message" >
                 <?php echo  $error; ?>
             </small>
-       <?php };  ?>
+       <?php }  ?>
 
         <button type="submit">Submit</button>
     </form>
