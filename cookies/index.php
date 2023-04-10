@@ -1,16 +1,5 @@
 <?php
 
-//if ($_SERVER['REQUEST_METHOD'] === "POST") {
-//    $themeMode = $_POST['mode'];
-//
-//    setcookie('themeMode', $themeMode);
-//
-//    if ($_COOKIE['themeMode'] === 'dark') {
-//        $theme =  'gray';
-//    } elseif ($_COOKIE['themeMode'] === 'light') {
-//        $theme =  'antiquewhite';
-//    }
-//}
 if (isset($_GET['theme'])) {
     $theme = $_GET['theme'];
     setcookie('theme', $theme, time() + 3600);
