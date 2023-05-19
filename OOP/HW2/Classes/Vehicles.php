@@ -1,16 +1,16 @@
 <?php
+namespace Vehicles;
 require_once __DIR__ . '/../Interfaces/MovableInterface.php';
-abstract class Vehicles implements MovableInterface
+abstract class Vehicles implements \MovableInterface
 {
     protected bool $isStarted = false;
     protected int $maxSpeed;
     protected int $currentSpeed = 0;
 
-    public function __construct(int $maxSpeed)
+    public function __construct($maxSpeed)
     {
         $this->maxSpeed = $maxSpeed;
     }
-
     public function start(): string
     {
         $this->isStarted = true;
@@ -53,4 +53,5 @@ abstract class Vehicles implements MovableInterface
         $this->currentSpeed -= $unit;
         return 'Your speed now decreasing, now it is ' . $this->currentSpeed . ' km/h.' . PHP_EOL;
     }
+
 }

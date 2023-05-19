@@ -1,12 +1,18 @@
 <?php
+namespace Vehicles\Cars;
 require_once __DIR__ . '/Vehicles.php';
 
 //клас наслідує всі методи та властивості абстрактного класу Vehicles, змінюючи деякі з методів та додаючи свої
-class Car extends Vehicles
+class Car extends \Vehicles\Vehicles
 {
+    const COUNTRY_ITALY = 'Italy';
+    const COUNTRY_GERMANY = 'Germany';
+    const COUNTRY_AMERICA = 'America';
+    protected  static int $counter = 0;
     public function __construct(int $maxSpeed)
     {
         parent::__construct($maxSpeed);
+        static::$counter++;
     }
 
     public function start(): string
@@ -35,12 +41,8 @@ class Car extends Vehicles
     {
         return "Hello owner. ". PHP_EOL;
     }
+    public static function getCount(): int
+    {
+        return static::$counter;
+    }
 }
-
-$ferrari = new Car(320);
-
-echo $ferrari->start();
-echo $ferrari->up(50);
-echo $ferrari->up(150);
-echo $ferrari->down(60);
-echo $ferrari->stop();
