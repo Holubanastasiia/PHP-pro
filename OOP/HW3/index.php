@@ -1,11 +1,13 @@
 <?php
 
 spl_autoload_register(function($className) {
+    $namespaceParts = explode('\\', $className);
+    $rootNamespace = $namespaceParts[0];
 
     $filename = str_replace('\\', '/', $className);
-    $filename = str_replace('Application', 'src', $filename);
+    $filename = str_replace($rootNamespace, 'src', $filename);
 
-    if ($filename) {
+    if (file_exists($filename .  '.php')) {
         require_once $filename . '.php';
     }
 
