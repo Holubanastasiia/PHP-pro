@@ -5,11 +5,11 @@ include __DIR__ . '/Classes/Bicycle.php';
 use \Vehicles\Cars\Car;
 use \Vehicles\Bicycles\Bicycle;
 
-$ferrari = new Car(320);
-$lamborghini = new Car(360);
+$ferrari = new Car(320, Car::COUNTRY_ITALY);
+$volkswagen = new Car(360, Car::COUNTRY_GERMANY);
 
 echo $ferrari->getCountry();
-echo $lamborghini->getCountry();
+echo $volkswagen->getCountry();
 
 //echo $ferrari->start();
 //echo $ferrari->up(50);
