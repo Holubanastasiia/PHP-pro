@@ -8,7 +8,8 @@ use \Vehicles\Bicycles\Bicycle;
 $ferrari = new Car(320);
 $lamborghini = new Car(360);
 
-echo $ferrariProductionCountry = Car::COUNTRY_ITALY . PHP_EOL;
+echo $ferrari->getCountry();
+echo $lamborghini->getCountry();
 
 //echo $ferrari->start();
 //echo $ferrari->up(50);
