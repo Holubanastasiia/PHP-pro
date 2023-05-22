@@ -1,0 +1,17 @@
+{
+    "name": "anastasiia/oop",
+    "description": "My project",
+    "autoload": {
+        "psr-4": {
+            "Anastasiia\\Oop\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "anastastasia.holubnycha@cpamatica.io"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
+    }
+}
