@@ -6,6 +6,9 @@ use GuzzleHttp\Client;
 $client = new Client();
 
 $response = $client->get('https://itea.ua');
-$body = $response->getBody()->getContents();
 
-echo $body;
+if ($response->getStatusCode() === 200) {
+    $body = $response->getBody()->getContents();
+    echo $body;
+}
+
