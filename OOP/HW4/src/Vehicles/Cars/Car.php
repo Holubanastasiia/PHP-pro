@@ -15,14 +15,14 @@ class Car extends Vehicle implements MovableInterface
 
     protected $wheels;
 
-//    private $engine;
+    private $engine;
 
     public string $productionCountry;
 
     public function __construct(int $maxSpeed, string $productionCountry)
     {
+        $this->engine = new Engine();
         $this->productionCountry = $productionCountry;
-//        $this->wheels = new Wheels();
         $this->wheels = [];
         parent::__construct($maxSpeed);
         static::$counter++;
@@ -30,9 +30,19 @@ class Car extends Vehicle implements MovableInterface
 
     public function start(): string
     {
-        $this->isStarted = true;
+        $this->engine->start();
         return $this->sayHelloToOwner() . "You pressed a start button!" . PHP_EOL;
+
     }
+
+    public function stop(): string
+    {
+        $this->isStarted = false;
+        $this->currentSpeed = 0;
+        $this->engine->stop();
+        return 'Stop';
+    }
+
 
     public function down(int $unit): string
     {

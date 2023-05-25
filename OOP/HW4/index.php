@@ -22,6 +22,8 @@ $ferrari->addWheel($wheel4);
 
 $ferrari->printWheelInfo();
 
+$ferrari->stop();
+
 $driver = new Driver('Berdichiv', 'Kyiv');
 
 echo $driver->drive($ferrari);

@@ -4,11 +4,11 @@ namespace Application\VehiclesParts;
 
 class Engine
 {
-private float|int $engineCapacity;
+    public function start() {
+        echo "Engine started.\n";
+    }
 
-public function showEngineCapacity(): string
-{
-    return 'Engine - ' . $this->engineCapacity . ' cu.';
-}
-
+    public function stop() {
+        echo "Engine stopped.\n";
+    }
 }

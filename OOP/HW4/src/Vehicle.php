@@ -1,7 +1,6 @@
 <?php
 namespace Application;
 
-use \Application\Interfaces\MovableInterface;
 abstract class Vehicle
 {
     protected bool $isStarted = false;
