@@ -3,7 +3,7 @@
     "description": "My project",
     "autoload": {
         "psr-4": {
-            "Anastasiia\\Oop\\": "src/"
+            "App\\Oop\\": "src/"
         }
     },
     "authors": [
@@ -11,7 +11,9 @@
             "name": "anastastasia.holubnycha@cpamatica.io"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
-        "guzzlehttp/guzzle": "^7.0"
+        "guzzlehttp/guzzle": "^7.0",
+        "anastasiia/calculator": "dev-main"
     }
 }
