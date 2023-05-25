@@ -4,8 +4,46 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6455aa54589c8c2fd78d5a22535371f3",
+    "content-hash": "670d7320b0fedce119b0ad8ce2928914",
     "packages": [
+        {
+            "name": "anastasiia/calculator",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Holubanastasiia/Calculator.git",
+                "reference": "3df142e1f92e58925dc5eef02d34fe3e8b9345e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Holubanastasiia/Calculator/zipball/3df142e1f92e58925dc5eef02d34fe3e8b9345e4",
+                "reference": "3df142e1f92e58925dc5eef02d34fe3e8b9345e4",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Anastasiia\\Calculator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anastasiia Holubnycha",
+                    "email": "holubanastasiia@gmail.com"
+                }
+            ],
+            "description": "use this lib for math operations",
+            "support": {
+                "issues": "https://github.com/Holubanastasiia/Calculator/issues",
+                "source": "https://github.com/Holubanastasiia/Calculator/tree/main"
+            },
+            "time": "2023-05-25T13:10:57+00:00"
+        },
         {
             "name": "guzzlehttp/guzzle",
             "version": "7.7.0",
@@ -605,8 +643,10 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "anastasiia/calculator": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
