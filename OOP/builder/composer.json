@@ -1,0 +1,13 @@
+{
+    "name": "anastasiia/db-query-builder",
+    "description": "Query Builder - based on the Builder design pattern for working with a database.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Anastasiia\\DbQueryBuilder\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}

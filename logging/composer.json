@@ -1,0 +1,12 @@
+{
+    "name": "anastasiia/logging",
+    "autoload": {
+        "psr-4": {
+            "Anastasiia\\Logger\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "anastasiia/logger": "dev-main"
+    }
+}

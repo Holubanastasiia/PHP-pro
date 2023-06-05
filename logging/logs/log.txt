@@ -1,0 +1,4 @@
+[LOG] [2023-06-01 17:37:18] [Some message1] [0:context, 1:another_context]
+[DEBUG] [2023-06-01 17:37:18] [Some message] [0:context, 1:another_context]
+[LOG] [2023-06-02 15:43:09] [Some messпарage1] [0:context, 1:another_context]
+[DEBUG] [2023-06-02 15:43:09] [Some message1] [0:context, 1:another_context]
